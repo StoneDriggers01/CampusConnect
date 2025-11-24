@@ -14,4 +14,12 @@ CREATE TABLE events (
     date TEXT
 );
 
--- Create external scraped events table here
+-- External scraped events table
+DROP TABLE IF EXISTS external_events;
+CREATE TABLE external_events (
+    id INTEGER PRIMARY KEY,
+    title TEXT NOT NULL,
+    date TEXT,
+    location TEXT,
+    description TEXT
+);
