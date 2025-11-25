@@ -23,3 +23,23 @@ CREATE TABLE external_events (
     location TEXT,
     description TEXT
 );
+
+-- API data table for weather.gov alerts
+DROP TABLE IF EXISTS api_data;
+CREATE TABLE api_data (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    event TEXT NOT NULL,                 
+    headline TEXT,                       
+    description TEXT,                    
+    severity TEXT,                       
+    urgency TEXT,                       
+    certainty TEXT,                 
+    effective TEXT,                   
+    expires TEXT,                    
+    area TEXT,                         
+    source TEXT
+    alert TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP                
+);
+
+    

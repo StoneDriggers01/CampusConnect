@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard - CampusConnect</title>
+    <title>Weather Alerts - CampusConnect</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
@@ -15,6 +15,44 @@
             <li>More features coming soon...</li>
             <li><a href="/events">View Events</a></li>
         </ul>
+
+        <h2>Active Weather Alerts</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Headline</th>
+                    <th>Description</th>
+                    <th>Severity</th>
+                    <th>Urgency</th>
+                    <th>Certainty</th>
+                    <th>Effective</th>
+                    <th>Expires</th>
+                    <th>Area</th>
+                    <th>Source</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in api_data %}
+                <tr>
+                    <td>{{ row['event'] }}</td>
+                    <td>{{ row['headline'] }}</td>
+                    <td>{{ row['description'] }}</td>
+                    <td>{{ row['severity'] }}</td>
+                    <td>{{ row['urgency'] }}</td>
+                    <td>{{ row['certainty'] }}</td>
+                    <td>{{ row['effective'] }}</td>
+                    <td>{{ row['expires'] }}</td>
+                    <td>{{ row['area'] }}</td>
+                    <td>{{ row['source'] }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="10">No active alerts at this time.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </main>
 </body>
 </html>
